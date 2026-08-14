@@ -66,32 +66,32 @@ export const GlassMusicPlayer: React.FC = () => {
 
   return (
     <>
-      {/* Hidden container where the REAL YouTube Iframe API player attaches */}
+      {/* Hidden container where the REAL YouTube Iframe API player attaches - DO NOT REMOVE */}
       <div
         className={`fixed z-30 transition-all duration-300 ${
           showVideo
-            ? 'bottom-28 right-4 sm:right-10 w-72 sm:w-80 h-44 rounded-2xl overflow-hidden border border-[#303642] shadow-2xl bg-black opacity-100 pointer-events-auto'
+            ? 'bottom-24 right-4 sm:right-8 w-72 sm:w-80 h-44 rounded-2xl overflow-hidden border border-[#262D3A] shadow-2xl bg-black opacity-100 pointer-events-auto'
             : 'top-0 left-0 w-1 h-1 opacity-0 pointer-events-none -z-50 overflow-hidden'
         }`}
       >
         <div id="real-youtube-iframe-player" className="w-full h-full" />
       </div>
 
-      {/* Floating Glassmorphic Player Bar (Fixed Bottom) */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 p-3 sm:p-5 pointer-events-none">
-        <div className="max-w-5xl mx-auto rounded-2xl backdrop-blur-xl bg-[#0C0E14]/85 bg-white/5 border border-white/10 p-4 sm:p-5 shadow-2xl pointer-events-auto">
+      {/* Archival Now Playing Bar (Fixed Bottom Player Deck) */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 p-2 sm:p-4 pointer-events-none">
+        <div className="max-w-5xl mx-auto rounded-2xl backdrop-blur-md bg-[#0A0C10]/90 border border-[#232936] p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)] pointer-events-auto">
           
           {/* Progress Bar (Full Width Top Scrubber linked to REAL YouTube audio) */}
-          <div className="relative -mt-1 mb-3 group">
-            <div className="flex justify-between items-end mb-1.5 text-[10px] font-mono opacity-60 text-[#E0D8D0]">
-              <span className="font-mono">{formatTime(currentTrack.currentTime)}</span>
-              <span className="font-mono">
+          <div className="relative -mt-1 mb-2.5 group">
+            <div className="flex justify-between items-end mb-1 text-[10px] font-mono text-[#9A938A]">
+              <span>{formatTime(currentTrack.currentTime)}</span>
+              <span>
                 {currentTrack.duration > 0 ? formatTime(currentTrack.duration) : statusMessage}
               </span>
             </div>
-            <div className="relative w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div className="relative w-full h-1.5 bg-[#171B24] rounded-full overflow-hidden border border-[#252B38]">
               <div
-                className="h-full bg-gradient-to-r from-[#F27D26] to-[#FFB074] transition-all duration-150"
+                className="h-full bg-gradient-to-r from-[#E87B28] to-[#FF9D42] transition-all duration-150"
                 style={{ width: `${currentTrack.progress}%` }}
               />
             </div>
@@ -106,11 +106,11 @@ export const GlassMusicPlayer: React.FC = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between gap-3 sm:gap-6">
+          <div className="flex items-center justify-between gap-2 sm:gap-5">
             
-            {/* Left: Track Info & Album Art from REAL YouTube Playlist item */}
-            <div className="flex items-center gap-3.5 min-w-0 max-w-[45%] sm:max-w-[38%]">
-              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-[#F27D26]/20 border border-[#F27D26]/30 flex-shrink-0 flex items-center justify-center shadow-md">
+            {/* Left: Track Info & Thumbnail from REAL YouTube Playlist item */}
+            <div className="flex items-center gap-3 min-w-0 max-w-[48%] sm:max-w-[40%]">
+              <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden bg-[#141720] border border-[#262D3A] flex-shrink-0 flex items-center justify-center shadow-md">
                 {currentTrack.videoId ? (
                   <img
                     src={`https://img.youtube.com/vi/${currentTrack.videoId}/hqdefault.jpg`}
@@ -118,22 +118,20 @@ export const GlassMusicPlayer: React.FC = () => {
                     referrerPolicy="no-referrer"
                     className={`w-full h-full object-cover ${isPlaying ? 'scale-105 transition-transform duration-700' : ''}`}
                     onError={(e) => {
-                      // Fallback icon if thumbnail fails
                       (e.target as HTMLElement).style.display = 'none';
                     }}
                   />
                 ) : (
-                  <Disc className={`w-6 h-6 text-[#F27D26] ${isPlaying ? 'animate-spin-slow' : ''}`} />
+                  <Disc className={`w-5 h-5 text-[#E87B28] ${isPlaying ? 'animate-spin-slow' : ''}`} />
                 )}
-                {/* Center Accent */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#0C0E14] border border-[#F27D26]" />
+                  <div className="w-2 h-2 rounded-full bg-[#0A0C10] border border-[#E87B28]" />
                 </div>
               </div>
 
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <h4 className="text-sm sm:text-base font-bold font-bn-serif text-[#E0D8D0] truncate leading-tight">
+                  <h4 className="text-xs sm:text-sm font-bold font-bn-serif text-[#F0E8DF] truncate leading-tight">
                     {currentTrack.title}
                   </h4>
                   <button
@@ -141,43 +139,43 @@ export const GlassMusicPlayer: React.FC = () => {
                       audioSynth.playNostalgiaChime();
                       setIsLiked(!isLiked);
                     }}
-                    className="flex-shrink-0 text-[#E0D8D0]/40 hover:text-[#F27D26] transition-colors"
+                    className="flex-shrink-0 text-[#8A847C] hover:text-[#E87B28] transition-colors"
                   >
-                    <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-[#F27D26] text-[#F27D26]' : ''}`} />
+                    <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-[#E87B28] text-[#E87B28]' : ''}`} />
                   </button>
                 </div>
-                <p className="text-xs text-[#E0D8D0]/60 font-bn-sans truncate mt-0.5">
+                <p className="text-[11px] text-[#A59E95] font-bn-sans truncate mt-0.5">
                   {currentTrack.artist}
                 </p>
               </div>
             </div>
 
-            {/* Center: Main Player Transport Controls */}
-            <div className="flex flex-col items-center gap-1.5">
-              <div className="flex items-center gap-2 sm:gap-4">
+            {/* Center: Main Transport Controls */}
+            <div className="flex flex-col items-center gap-1">
+              <div className="flex items-center gap-2 sm:gap-3">
                 
                 {/* Shuffle */}
                 <button
                   onClick={() => setIsShuffle(!isShuffle)}
-                  className={`p-1.5 rounded-full hidden sm:block transition-colors ${
-                    isShuffle ? 'text-[#F27D26] bg-[#F27D26]/20' : 'text-[#E0D8D0]/40 hover:text-[#E0D8D0]'
+                  className={`p-1.5 rounded-lg hidden sm:block transition-colors ${
+                    isShuffle ? 'text-[#E87B28] bg-[#E87B28]/15 border border-[#E87B28]/30' : 'text-[#8A847C] hover:text-[#E2DAD1]'
                   }`}
                   title="শাফল"
                 >
                   <Shuffle className="w-3.5 h-3.5" />
                 </button>
 
-                {/* Previous Track in Real YouTube Playlist */}
+                {/* Previous Track */}
                 <button
                   id="music-prev-btn"
                   onClick={() => {
                     audioSynth.playCassetteClick('press');
                     playPrev();
                   }}
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 text-[#E0D8D0]/70 hover:text-white transition-all active:scale-95"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-[#282F3E] bg-[#12151D] flex items-center justify-center text-[#D4CCC1] hover:text-white hover:border-[#E87B28]/50 transition-all active:scale-95"
                   title="পূর্ববর্তী গান"
                 >
-                  <SkipBack className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                  <SkipBack className="w-4 h-4" />
                 </button>
 
                 {/* Play / Pause Primary Button connected to real YouTube player */}
@@ -187,36 +185,36 @@ export const GlassMusicPlayer: React.FC = () => {
                     audioSynth.playCassetteClick('press');
                     togglePlay();
                   }}
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#F27D26] hover:bg-[#FFB074] text-[#0C0E14] flex items-center justify-center shadow-lg shadow-[#F27D26]/25 transition-transform active:scale-90"
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-[#E87B28] hover:bg-[#FF9D42] text-[#0A0C10] flex items-center justify-center shadow-lg shadow-[#E87B28]/25 transition-transform active:scale-95"
                   title={isPlaying ? 'বিরতি (Pause)' : 'চালান (Play)'}
                 >
                   {isLoading ? (
                     <Loader2 className="w-5 h-5 animate-spin" />
                   ) : isPlaying ? (
-                    <Pause className="w-5 h-5 fill-[#0C0E14]" />
+                    <Pause className="w-5 h-5 fill-[#0A0C10]" />
                   ) : (
-                    <Play className="w-5 h-5 fill-[#0C0E14] translate-x-0.5" />
+                    <Play className="w-5 h-5 fill-[#0A0C10] translate-x-0.5" />
                   )}
                 </button>
 
-                {/* Next Track in Real YouTube Playlist */}
+                {/* Next Track */}
                 <button
                   id="music-next-btn"
                   onClick={() => {
                     audioSynth.playCassetteClick('press');
                     playNext();
                   }}
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 text-[#E0D8D0]/70 hover:text-white transition-all active:scale-95"
+                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-[#282F3E] bg-[#12151D] flex items-center justify-center text-[#D4CCC1] hover:text-white hover:border-[#E87B28]/50 transition-all active:scale-95"
                   title="পরবর্তী গান"
                 >
-                  <SkipForward className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                  <SkipForward className="w-4 h-4" />
                 </button>
 
                 {/* Video toggle button */}
                 <button
                   onClick={() => setShowVideo(!showVideo)}
-                  className={`p-1.5 rounded-full transition-colors ${
-                    showVideo ? 'text-[#F27D26] bg-[#F27D26]/20' : 'text-[#E0D8D0]/40 hover:text-[#E0D8D0]'
+                  className={`p-1.5 rounded-lg transition-colors ${
+                    showVideo ? 'text-[#E87B28] bg-[#E87B28]/15 border border-[#E87B28]/30' : 'text-[#8A847C] hover:text-[#E2DAD1]'
                   }`}
                   title={showVideo ? 'ভিডিও লুকান' : 'ইউটিউব ভিডিও দেখুন'}
                 >
@@ -226,12 +224,12 @@ export const GlassMusicPlayer: React.FC = () => {
 
               {/* Real-time Visualizer Waves Bar */}
               <div className="flex items-center gap-0.5 h-2">
-                {[...Array(12)].map((_, i) => (
+                {[...Array(10)].map((_, i) => (
                   <div
                     key={i}
-                    className="w-1 bg-[#F27D26] rounded-full transition-all duration-150"
+                    className="w-1 bg-[#E87B28] rounded-full transition-all duration-150"
                     style={{
-                      height: isPlaying ? `${Math.random() * 8 + 2}px` : '2px',
+                      height: isPlaying ? `${Math.random() * 7 + 2}px` : '2px',
                       opacity: isPlaying ? 0.9 : 0.2,
                     }}
                   />
@@ -240,20 +238,20 @@ export const GlassMusicPlayer: React.FC = () => {
             </div>
 
             {/* Right: Drawer Actions (Playlist, Lyrics, Volume) */}
-            <div className="flex items-center gap-1.5 sm:gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-2.5">
               
               {/* Lyrics Toggle */}
               <button
                 id="lyrics-btn"
                 onClick={() => setShowLyrics(!showLyrics)}
-                className={`px-3 py-1.5 rounded-xl border text-xs font-bn-sans flex items-center gap-1.5 transition-all ${
+                className={`px-2.5 py-1 rounded-lg border text-xs font-bn-sans flex items-center gap-1.5 transition-all ${
                   showLyrics
-                    ? 'bg-[#F27D26]/20 border-[#F27D26] text-[#E0D8D0]'
-                    : 'bg-[#1A1D23] border-[#303642] text-[#E0D8D0]/60 hover:text-[#E0D8D0] hover:border-[#303642]/90'
+                    ? 'bg-[#E87B28]/20 border-[#E87B28] text-[#F0E8DF]'
+                    : 'bg-[#12151D] border-[#252B38] text-[#A59E95] hover:text-[#F0E8DF]'
                 }`}
                 title="গানের লিরিক্স"
               >
-                <FileText className="w-3.5 h-3.5 text-[#F27D26]" />
+                <FileText className="w-3.5 h-3.5 text-[#E87B28]" />
                 <span className="hidden md:inline">লিরিক্স</span>
               </button>
 
@@ -261,24 +259,24 @@ export const GlassMusicPlayer: React.FC = () => {
               <button
                 id="playlist-btn"
                 onClick={() => setShowPlaylist(!showPlaylist)}
-                className={`px-3 py-1.5 rounded-xl border text-xs font-bn-sans flex items-center gap-1.5 transition-all ${
+                className={`px-2.5 py-1 rounded-lg border text-xs font-bn-sans flex items-center gap-1.5 transition-all ${
                   showPlaylist
-                    ? 'bg-[#F27D26]/20 border-[#F27D26] text-[#E0D8D0]'
-                    : 'bg-[#1A1D23] border-[#303642] text-[#E0D8D0]/60 hover:text-[#E0D8D0] hover:border-[#303642]/90'
+                    ? 'bg-[#E87B28]/20 border-[#E87B28] text-[#F0E8DF]'
+                    : 'bg-[#12151D] border-[#252B38] text-[#A59E95] hover:text-[#F0E8DF]'
                 }`}
                 title="প্লেলিস্ট (Playlist)"
               >
-                <ListMusic className="w-3.5 h-3.5 text-[#F27D26]" />
+                <ListMusic className="w-3.5 h-3.5 text-[#E87B28]" />
                 <span className="hidden md:inline">প্লেলিস্ট</span>
               </button>
 
               {/* Volume Slider (Desktop) */}
-              <div className="hidden lg:flex items-center gap-2 bg-[#0C0E14] px-3 py-1.5 rounded-xl border border-[#303642]">
-                <button onClick={toggleMute} className="text-[#E0D8D0]/50 hover:text-[#E0D8D0]">
+              <div className="hidden lg:flex items-center gap-2 bg-[#090B10] px-2.5 py-1 rounded-lg border border-[#232936]">
+                <button onClick={toggleMute} className="text-[#8A847C] hover:text-[#E2DAD1]">
                   {isMuted || volume === 0 ? (
                     <VolumeX className="w-3.5 h-3.5 text-red-400" />
                   ) : (
-                    <Volume2 className="w-3.5 h-3.5 text-[#F27D26]" />
+                    <Volume2 className="w-3.5 h-3.5 text-[#E87B28]" />
                   )}
                 </button>
                 <input
@@ -287,7 +285,7 @@ export const GlassMusicPlayer: React.FC = () => {
                   max="100"
                   value={isMuted ? 0 : volume}
                   onChange={handleVolumeChange}
-                  className="w-16 h-1 bg-[#1A1D23] rounded-lg appearance-none cursor-pointer accent-[#F27D26]"
+                  className="w-14 h-1 bg-[#171B24] rounded-lg appearance-none cursor-pointer accent-[#E87B28]"
                 />
               </div>
 
@@ -297,39 +295,39 @@ export const GlassMusicPlayer: React.FC = () => {
         </div>
       </div>
 
-      {/* Playlist Drawer Popup showing real playlist status */}
+      {/* Playlist Drawer Popup */}
       {showPlaylist && (
-        <div className="fixed bottom-28 right-4 sm:right-10 z-40 w-80 sm:w-96 max-h-[460px] p-5 rounded-2xl bg-[#1A1D23] border border-[#303642] shadow-2xl overflow-hidden flex flex-col animate-fade-in text-[#E0D8D0]">
-          <div className="flex items-center justify-between pb-3 border-b border-[#303642] mb-3">
+        <div className="fixed bottom-24 right-4 sm:right-8 z-40 w-80 sm:w-96 max-h-[440px] p-5 rounded-2xl bg-[#10131B] border border-[#262E3D] shadow-2xl overflow-hidden flex flex-col animate-fade-in text-[#E2DAD1]">
+          <div className="flex items-center justify-between pb-3 border-b border-[#232936] mb-3">
             <div className="flex items-center gap-2">
-              <ListMusic className="w-4 h-4 text-[#F27D26]" />
-              <h4 className="font-bold font-bn-serif text-[#E0D8D0] text-sm">
+              <ListMusic className="w-4 h-4 text-[#E87B28]" />
+              <h4 className="font-bold font-bn-serif text-[#F0E8DF] text-sm">
                 ইউটিউব প্লেলিস্ট ({currentTrack.playlistIndex + 1}/{currentTrack.totalTracks})
               </h4>
             </div>
             <button
               onClick={() => setShowPlaylist(false)}
-              className="p-1 rounded-lg text-[#E0D8D0]/40 hover:text-white"
+              className="p-1 rounded-lg text-[#8A847C] hover:text-white"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           <div className="flex-1 overflow-y-auto space-y-2 pr-1">
-            <div className="p-3.5 rounded-xl bg-[#0C0E14] border border-[#F27D26]/30 space-y-2">
+            <div className="p-3 rounded-xl bg-[#08090E] border border-[#E87B28]/30 space-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono text-[#F27D26] uppercase tracking-wider font-bold">
+                <span className="text-[10px] font-mono text-[#E87B28] uppercase tracking-wider font-bold">
                   NOW PLAYING FROM YOUTUBE
                 </span>
-                <span className="w-2 h-2 rounded-full bg-[#F27D26] animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-[#E87B28] animate-pulse" />
               </div>
-              <h5 className="font-bold font-bn-serif text-sm text-[#E0D8D0]">
+              <h5 className="font-bold font-bn-serif text-sm text-[#F0E8DF]">
                 {currentTrack.title}
               </h5>
-              <p className="text-xs text-[#E0D8D0]/60 font-bn-sans">
+              <p className="text-xs text-[#A59E95] font-bn-sans">
                 {currentTrack.artist}
               </p>
-              <div className="flex items-center justify-between text-[10px] font-mono text-[#E0D8D0]/40 pt-1 border-t border-white/5">
+              <div className="flex items-center justify-between text-[10px] font-mono text-[#8A847C] pt-1 border-t border-white/5">
                 <span>সময়: {formatTime(currentTrack.currentTime)}</span>
                 <span>মোট: {formatTime(currentTrack.duration)}</span>
               </div>
@@ -337,7 +335,7 @@ export const GlassMusicPlayer: React.FC = () => {
 
             {playlist.length > 0 && (
               <div className="space-y-1.5 pt-2">
-                <p className="text-[11px] font-mono text-[#E0D8D0]/50 uppercase tracking-wider">
+                <p className="text-[10px] font-mono text-[#8A847C] uppercase tracking-wider">
                   প্লেলিস্ট ট্র্যাকসমূহ ({playlist.length} টি গান):
                 </p>
                 {playlist.map((item, idx) => (
@@ -346,8 +344,8 @@ export const GlassMusicPlayer: React.FC = () => {
                     onClick={() => playTrackByIndex(idx)}
                     className={`w-full text-left p-2.5 rounded-xl border text-xs font-bn-sans flex items-center justify-between transition-all ${
                       idx === currentTrack.playlistIndex
-                        ? 'bg-[#F27D26]/20 border-[#F27D26] text-[#E0D8D0] font-bold'
-                        : 'bg-[#0C0E14] border-[#303642] text-[#E0D8D0]/70 hover:bg-[#252A35]'
+                        ? 'bg-[#E87B28]/20 border-[#E87B28] text-[#F0E8DF] font-bold'
+                        : 'bg-[#08090E] border-[#232936] text-[#B5AEA5] hover:bg-[#141822]'
                     }`}
                   >
                     <div className="flex items-center gap-2 truncate">
@@ -355,7 +353,7 @@ export const GlassMusicPlayer: React.FC = () => {
                       <span className="truncate">{idx === currentTrack.playlistIndex ? currentTrack.title : `গান #${idx + 1}`}</span>
                     </div>
                     {idx === currentTrack.playlistIndex && isPlaying && (
-                      <Disc className="w-3.5 h-3.5 text-[#F27D26] animate-spin-slow flex-shrink-0 ml-2" />
+                      <Disc className="w-3.5 h-3.5 text-[#E87B28] animate-spin-slow flex-shrink-0 ml-2" />
                     )}
                   </button>
                 ))}
@@ -363,7 +361,7 @@ export const GlassMusicPlayer: React.FC = () => {
             )}
           </div>
 
-          <div className="pt-2 mt-2 border-t border-[#303642] text-[10px] font-mono text-[#E0D8D0]/40 text-center uppercase tracking-wider">
+          <div className="pt-2 mt-2 border-t border-[#232936] text-[10px] font-mono text-[#8A847C] text-center uppercase tracking-wider">
             Official YouTube IFrame Player Active
           </div>
         </div>
@@ -371,13 +369,13 @@ export const GlassMusicPlayer: React.FC = () => {
 
       {/* Lyrics Drawer Popup */}
       {showLyrics && (
-        <div className="fixed bottom-28 left-4 sm:left-10 z-40 w-80 sm:w-96 max-h-[460px] p-6 rounded-2xl vintage-paper text-stone-900 shadow-2xl border-2 border-amber-900/30 overflow-hidden flex flex-col animate-fade-in">
-          <div className="flex items-center justify-between pb-3 border-b-2 border-stone-300 mb-3">
+        <div className="fixed bottom-24 left-4 sm:left-8 z-40 w-80 sm:w-96 max-h-[440px] p-5 rounded-2xl vintage-paper text-stone-900 shadow-2xl border-2 border-amber-900/30 overflow-hidden flex flex-col animate-fade-in">
+          <div className="flex items-center justify-between pb-2 border-b-2 border-stone-300 mb-3">
             <div>
               <span className="font-mono text-[10px] text-amber-900 uppercase tracking-widest block font-bold">
                 LYRICS ARCHIVE
               </span>
-              <h4 className="font-bold font-bn-serif text-stone-900 text-base truncate max-w-[200px]">
+              <h4 className="font-bold font-bn-serif text-stone-900 text-sm truncate max-w-[200px]">
                 {currentTrack.title}
               </h4>
             </div>
@@ -389,16 +387,16 @@ export const GlassMusicPlayer: React.FC = () => {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto space-y-3 notebook-ruled font-handwriting text-base text-[#1e293b] pr-1 py-4 text-center">
-            <p className="text-stone-700 font-bn-sans text-sm">
+          <div className="flex-1 overflow-y-auto space-y-3 notebook-ruled font-handwriting text-base text-[#1e293b] pr-1 py-3 text-center">
+            <p className="text-stone-800 font-bn-sans text-sm">
               ইউটিউব প্লেলিস্টের বর্তমান গান: <strong>{currentTrack.title}</strong>
             </p>
-            <p className="italic text-amber-900 text-xs font-mono mt-4">
+            <p className="italic text-amber-950 text-xs font-mono mt-4">
               [ইউটিউব প্লেয়ারের অডিও লাইভ শুনুন]
             </p>
           </div>
 
-          <div className="pt-3 border-t border-stone-300 text-center font-handwriting text-xs text-amber-900">
+          <div className="pt-2 border-t border-stone-300 text-center font-handwriting text-xs text-amber-900">
             “কিছু গান শেষ হয় না...”
           </div>
         </div>
@@ -406,3 +404,4 @@ export const GlassMusicPlayer: React.FC = () => {
     </>
   );
 };
+

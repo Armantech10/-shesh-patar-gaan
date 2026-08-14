@@ -10,8 +10,8 @@
 
   body {
     font-family: 'Noto Serif Bengali', 'Anek Bangla', 'Hind Siliguri', serif;
-    background-color: #0C0E14;
-    color: #E0D8D0;
+    background-color: #0A0C10;
+    color: #E2DAD1;
     overflow-x: hidden;
   }
 }
@@ -38,34 +38,48 @@
   writing-mode: vertical-rl;
 }
 
-/* Bold Typography Theme Backgrounds */
+/* Archival Background & Radial Ambience */
 .theme-bg-radial {
   background-image: 
-    radial-gradient(circle at 50% 30%, #2A2F3D 0%, transparent 70%),
-    radial-gradient(circle at 10% 80%, #1A1D23 0%, transparent 50%);
+    radial-gradient(circle at 50% 25%, #1C212B 0%, transparent 65%),
+    radial-gradient(circle at 15% 85%, #141720 0%, transparent 55%),
+    radial-gradient(circle at 85% 75%, #181410 0%, transparent 50%);
 }
 
 .noise-overlay {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
-/* Vintage Paper & Nostalgic Textures */
+/* Printed Archival Textures & Ink Labels */
+.archival-stamp {
+  border: 1px solid rgba(242, 125, 38, 0.4);
+  background-color: rgba(14, 16, 22, 0.9);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: 'Special Elite', monospace;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+}
+
+.archival-border {
+  border-color: #262B36;
+}
+
 .vintage-paper {
-  background-color: #f7f1e1;
+  background-color: #f3ecd8;
   background-image: 
-    radial-gradient(#d3c6ab 0.75px, transparent 0.75px),
-    linear-gradient(rgba(180, 150, 110, 0.08) 1px, transparent 1px);
+    radial-gradient(#cebf9f 0.75px, transparent 0.75px),
+    linear-gradient(rgba(170, 140, 100, 0.08) 1px, transparent 1px);
   background-size: 20px 20px, 100% 28px;
   box-shadow: 
-    0 1px 3px rgba(0,0,0,0.12),
-    0 10px 25px -5px rgba(0,0,0,0.25),
-    inset 0 0 40px rgba(184, 134, 11, 0.12);
+    0 1px 3px rgba(0,0,0,0.18),
+    0 12px 30px -5px rgba(0,0,0,0.4),
+    inset 0 0 35px rgba(165, 115, 45, 0.15);
 }
 
 .vintage-paper-dark {
-  background-color: #171513;
+  background-color: #141210;
   background-image: 
-    radial-gradient(#3a332a 0.75px, transparent 0.75px),
+    radial-gradient(#322b22 0.75px, transparent 0.75px),
     linear-gradient(rgba(212, 163, 115, 0.04) 1px, transparent 1px);
   background-size: 20px 20px, 100% 28px;
 }
@@ -73,31 +87,31 @@
 /* Notebook Ruled Line Pattern */
 .notebook-ruled {
   background-size: 100% 32px;
-  background-image: linear-gradient(to bottom, transparent 31px, rgba(100, 149, 237, 0.22) 32px);
+  background-image: linear-gradient(to bottom, transparent 31px, rgba(100, 130, 200, 0.18) 32px);
   line-height: 32px;
 }
 
-/* Glassmorphism & Theme Cards */
+/* Glassmorphism & Archival Cards */
 .glass-panel {
-  background: rgba(26, 29, 35, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid #303642;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  background: rgba(18, 21, 28, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #282F3E;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
 }
 
 .glass-panel-amber {
-  background: rgba(26, 29, 35, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(242, 125, 38, 0.25);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  background: rgba(18, 21, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(242, 125, 38, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
 }
 
 .card-theme {
-  background-color: #1A1D23;
-  border: 1px solid #303642;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  background-color: #141720;
+  border: 1px solid #262D3A;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
 }
 
 /* Cassette Spool & Realistic Physical Textures */
@@ -141,75 +155,75 @@
 
 /* 3D Physical Mechanical Buttons */
 .walkman-btn {
-  background: linear-gradient(180deg, #2e3440 0%, #1c202a 60%, #14171f 100%);
+  background: linear-gradient(180deg, #2a303d 0%, #191c25 60%, #12141c 100%);
   box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.6),
-    0 2px 4px -1px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.8);
+    0 4px 6px -1px rgba(0, 0, 0, 0.7),
+    0 2px 4px -1px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.9);
   transition: all 0.08s ease-in-out;
 }
 
 .walkman-btn:active, .walkman-btn-pressed {
   transform: translateY(2px);
-  background: linear-gradient(180deg, #181b22 0%, #20242e 100%);
+  background: linear-gradient(180deg, #14161f 0%, #1e222d 100%);
   box-shadow: 
     0 1px 2px rgba(0, 0, 0, 0.8),
-    inset 0 2px 4px rgba(0, 0, 0, 0.9),
-    inset 0 0 2px rgba(0, 0, 0, 0.9);
+    inset 0 2px 4px rgba(0, 0, 0, 0.95),
+    inset 0 0 2px rgba(0, 0, 0, 0.95);
 }
 
 .walkman-btn-orange {
-  background: linear-gradient(180deg, #ff8c37 0%, #f27d26 60%, #d45e0d 100%);
+  background: linear-gradient(180deg, #e87b28 0%, #d86819 60%, #b8520d 100%);
   box-shadow: 
-    0 4px 10px rgba(242, 125, 38, 0.35),
-    0 2px 4px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.6);
+    0 4px 10px rgba(216, 104, 25, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.7);
 }
 
 .walkman-btn-orange:active, .walkman-btn-orange-pressed {
   transform: translateY(2px);
-  background: linear-gradient(180deg, #d45e0d 0%, #f27d26 100%);
+  background: linear-gradient(180deg, #b8520d 0%, #d86819 100%);
   box-shadow: 
     0 1px 2px rgba(0, 0, 0, 0.8),
-    inset 0 2px 5px rgba(0, 0, 0, 0.8);
+    inset 0 2px 5px rgba(0, 0, 0, 0.85);
 }
 
 /* Metallic Chassis Finish */
 .walkman-chassis {
   background: 
     linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 40%),
-    linear-gradient(180deg, #222630 0%, #151820 45%, #10131a 100%);
+    linear-gradient(180deg, #1e222d 0%, #13161e 45%, #0e1017 100%);
   box-shadow: 
-    0 30px 80px -10px rgba(0, 0, 0, 0.9),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.8),
-    0 0 0 1px #2f3542;
+    0 30px 80px -10px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.85),
+    0 0 0 1px #272d3a;
 }
 
 /* Smoked Acrylic Cassette Door */
 .cassette-acrylic-window {
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(255, 255, 255, 0.07) 0%, 
     rgba(255, 255, 255, 0.02) 28%, 
-    rgba(0, 0, 0, 0.4) 40%, 
-    rgba(255, 255, 255, 0.06) 42%, 
-    rgba(0, 0, 0, 0.6) 55%, 
-    rgba(255, 255, 255, 0.03) 100%
+    rgba(0, 0, 0, 0.45) 40%, 
+    rgba(255, 255, 255, 0.05) 42%, 
+    rgba(0, 0, 0, 0.65) 55%, 
+    rgba(255, 255, 255, 0.02) 100%
   );
 }
 
 /* Cassette Worn Label Texture */
 .cassette-label-worn {
-  background-color: #f1ebd9;
+  background-color: #eee6d3;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(160, 120, 80, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(140, 100, 60, 0.18) 0%, transparent 50%),
-    linear-gradient(to bottom, #f8f4e6, #e7ddc4);
+    radial-gradient(circle at 10% 20%, rgba(150, 110, 70, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(130, 90, 50, 0.18) 0%, transparent 50%),
+    linear-gradient(to bottom, #f5f0df, #e2d7be);
   box-shadow: 
-    inset 0 0 12px rgba(120, 85, 45, 0.2),
-    0 1px 3px rgba(0, 0, 0, 0.4);
+    inset 0 0 12px rgba(110, 75, 35, 0.22),
+    0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Subtle scratch and worn overlay for cassette body */
@@ -226,19 +240,20 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0e15;
+  background: #090a0f;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2c38;
+  background: #232834;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4a373;
+  background: #d86819;
 }
 
-/* Subtle Film Grain */
+/* Film Grain Overlay */
 .film-grain {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
 }
+

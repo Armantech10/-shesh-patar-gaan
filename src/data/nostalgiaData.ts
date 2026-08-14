@@ -3,6 +3,22 @@ import { Track, NostalgicQuote, NostalgicMemory, ScribbleNote } from '../types';
 export const YOUTUBE_PLAYLIST_ID = 'PLyvTjZP_txBc6kL86-2-hKL4Agx2E1SHl';
 export const DEFAULT_VIDEO_ID = '_plZHJpjfZM';
 
+export interface MoodCategory {
+  id: string;
+  label: string;
+  icon: string;
+  subtitle: string;
+  playlistId?: string; // Structured so each mood can later receive its own real YouTube playlist ID
+}
+
+export const MOOD_CATEGORIES: MoodCategory[] = [
+  { id: 'rain', label: 'বৃষ্টিভেজা দুপুর', icon: '🌧️', subtitle: 'শ্রাবণের মেঘ ও ঝুম বৃষ্টি' },
+  { id: 'cassette', label: 'ওয়াকম্যান ও ক্যাসেট', icon: '📼', subtitle: 'টিডিকে ৯০ মিনিটের ক্যাসেট' },
+  { id: 'adda', label: 'উত্তর কলকাতার আড্ডা', icon: '☕', subtitle: 'টংয়ের চা ও পুরনো গিটার' },
+  { id: 'diary', label: 'ডায়েরির শেষ পাতা', icon: '📖', subtitle: 'ব্যাকবেঞ্চের কাটাকাটি চিহ্ন' },
+  { id: 'night', label: 'শেষ রাতের গান', icon: '🌙', subtitle: 'নিঝুম রাতের নির্জন সুর' },
+];
+
 export const NOSTALGIC_TRACKS: Track[] = [
   {
     id: 'yt-playlist-pending',

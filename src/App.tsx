@@ -46,23 +46,23 @@ function MainAppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0C0E14] text-[#E0D8D0] relative selection:bg-[#F27D26] selection:text-[#0C0E14] pb-36 font-serif overflow-x-hidden">
+    <div className="min-h-screen bg-[#0A0C10] text-[#E2DAD1] relative selection:bg-[#E87B28] selection:text-[#0A0C10] pb-32 font-serif overflow-x-hidden film-grain">
       {/* Background Ambience & Radial Lighting */}
-      <div className="fixed inset-0 pointer-events-none opacity-40 theme-bg-radial z-0" />
-      <div className="fixed inset-0 pointer-events-none opacity-20 noise-overlay z-0" />
+      <div className="fixed inset-0 pointer-events-none opacity-50 theme-bg-radial z-0" />
+      <div className="fixed inset-0 pointer-events-none opacity-25 noise-overlay z-0" />
 
-      {/* Vertical Aesthetic Typography Accents */}
+      {/* Vertical Archival Typography Accents (Desktop only) */}
       <aside aria-label="Decorative metadata" className="hidden lg:block fixed right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none select-none">
-        <div className="vertical-text transform rotate-180 text-[10px] uppercase tracking-[0.5em] opacity-30 font-mono text-[#E0D8D0]">
+        <div className="vertical-text transform rotate-180 text-[10px] uppercase tracking-[0.4em] opacity-35 font-mono text-[#B5AEA5]">
           NOSTALGIA / MELANCHOLY / 1998 — SHESH PATAR GAAN
         </div>
       </aside>
 
       <aside aria-label="Decorative archival index" className="hidden lg:block fixed left-6 bottom-32 z-20 pointer-events-none select-none">
-        <div className="text-[10px] uppercase tracking-[0.25em] opacity-30 font-mono text-[#E0D8D0] mb-1">
+        <div className="text-[10px] uppercase tracking-[0.25em] opacity-35 font-mono text-[#B5AEA5] mb-1">
           Archival Index
         </div>
-        <div className="text-xs font-mono text-[#F27D26]/80 tracking-wider">
+        <div className="text-xs font-mono text-[#E87B28]/90 tracking-wider">
           VOL. 98 — SIDE A
         </div>
       </aside>
@@ -73,22 +73,22 @@ function MainAppContent() {
       {/* Main Content Container */}
       <main className="relative z-10">
         
-        {/* Header with Title & Main Nostalgic Quote */}
+        {/* Archival Header with Printed Identity & Mood Categories */}
         <HeaderTitle currentMood={currentMood} onMoodSelect={setCurrentMood} />
 
-        {/* Real-time Live Listener Station Indicator */}
+        {/* Real-time Live Listener Broadcast Indicator */}
         <LiveStationBar />
 
-        {/* Central Illustrated Object: The Vintage Sony Walkman connected to REAL YouTube Player */}
+        {/* Central Visual Centerpiece: Vintage Walkman Connected to REAL YouTube Player */}
         <WalkmanCassette />
 
         {/* Rotating Nostalgic Bengali Quotes */}
         <RotatingQuotes />
 
-        {/* Interactive Melody Instrument (Keyboard playable chords) */}
+        {/* Interactive Acoustic Chords Synthesizer */}
         <InteractiveKeyboardChords />
 
-        {/* Central Visual Object: The "শেষ পাতা" (Open Notebook & User Memories) */}
+        {/* Central Visual Object: Open Notebook & User Memory Scribbles */}
         <DiaryLastPage
           scribbles={scribbles}
           onOpenWriteModal={() => setIsWriteModalOpen(true)}
@@ -98,18 +98,22 @@ function MainAppContent() {
         {/* Historical Bengali Nostalgia Archives (Tea stall, Letters, TDK cassettes) */}
         <MemoriesGrid />
 
-        {/* Poetic Footer */}
-        <footer className="text-center py-12 px-4 max-w-2xl mx-auto border-t border-stone-800/80 text-xs text-stone-500 font-bn-sans">
-          <p className="font-handwriting text-xl text-amber-200/80 mb-2">
+        {/* Archival Footer */}
+        <footer className="text-center py-12 px-4 max-w-2xl mx-auto border-t border-[#232936] text-xs text-[#8A847C] font-bn-sans select-none">
+          <p className="font-handwriting text-2xl text-amber-200/90 mb-2">
             “কিছু গান শেষ হয় না। শুধু মানুষটা বদলে যায়।”
           </p>
-          <p className="font-mono text-[11px] text-stone-400">
+          <p className="font-mono text-[11px] text-[#A59E95] max-w-lg mx-auto leading-relaxed">
             Dedicated to the rainy afternoons, handwritten letters, backbench diaries, and timeless Bengali songs.
           </p>
-          <div className="flex items-center justify-center gap-2 mt-4 text-[10px] font-mono text-stone-500">
-            <span>TAPE: SIDE A / SIDE B</span>
+          
+          {/* Printed Archival Footer Markings */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-5 text-[10px] font-mono text-[#6E6860] uppercase tracking-widest">
+            <span>ARCHIVAL INDEX</span>
             <span>•</span>
-            <span>AUTO REVERSE</span>
+            <span>VOL. 98 — SIDE A</span>
+            <span>•</span>
+            <span>RECORDED / RESTORED / DIGITIZED</span>
             <span>•</span>
             <span>SHESH PATAR GAAN © 1998–2026</span>
           </div>
@@ -117,7 +121,7 @@ function MainAppContent() {
 
       </main>
 
-      {/* Fixed Bottom Glassmorphic Music Player connected to REAL YouTube Player */}
+      {/* Fixed Bottom Glassmorphic Player Bar connected to REAL YouTube Player */}
       <GlassMusicPlayer />
 
       {/* Interactive Write on the Last Page Modal */}
@@ -139,3 +143,4 @@ export default function App() {
     </YouTubeMusicProvider>
   );
 }
+

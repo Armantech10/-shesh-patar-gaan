@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sparkles, Radio, Bookmark, Heart, Flame } from 'lucide-react';
+import { Radio, Disc, Sparkles } from 'lucide-react';
+import { MOOD_CATEGORIES } from '../data/nostalgiaData';
 import { audioSynth } from '../utils/audioSynth';
 
 interface HeaderTitleProps {
@@ -8,83 +9,98 @@ interface HeaderTitleProps {
 }
 
 export const HeaderTitle: React.FC<HeaderTitleProps> = ({ currentMood, onMoodSelect }) => {
-  const moods = [
-    { id: 'rain', label: 'বৃষ্টিভেজা দুপুর', icon: '🌧️' },
-    { id: 'cassette', label: 'ওয়াকম্যান ও ক্যাসেট', icon: '📼' },
-    { id: 'tea', label: 'টংয়ের চায়ের আড্ডা', icon: '☕' },
-    { id: 'diary', label: 'ডায়েরির শেষ পাতা', icon: '📖' },
-  ];
-
   return (
-    <header className="relative pt-12 pb-6 max-w-5xl mx-auto px-4 sm:px-8 z-10">
-      {/* Top Archival Header Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#303642]/60 mb-6 text-xs">
-        <div className="flex items-center gap-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1D23] border border-[#303642] text-[#E0D8D0]/80 font-mono text-[11px] tracking-wider">
-            <Radio className="w-3.5 h-3.5 text-[#F27D26] animate-pulse" />
-            <span className="font-typewriter uppercase tracking-widest text-[10px]">TAPE 01 • DOLBY NR</span>
+    <header className="relative pt-10 pb-4 max-w-5xl mx-auto px-4 sm:px-8 z-10 select-none">
+      
+      {/* 1. Printed Archival Identification System (Top Header Markings) */}
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#232836] mb-8 font-mono text-[11px] tracking-widest text-[#B5AEA5]">
+        <div className="flex items-center gap-3 flex-wrap">
+          {/* TAPE 01 Stamped Label */}
+          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-[#101319] border border-[#2B3242] text-[#E5DCD2] text-[10px] font-bold">
+            <Radio className="w-3 h-3 text-[#E87B28] animate-pulse" />
+            <span className="font-typewriter uppercase tracking-widest">TAPE 01 • DOLBY NR</span>
           </div>
-          <span className="text-[10px] font-mono uppercase tracking-[0.25em] opacity-40 hidden sm:inline">
-            Bengali Nostalgia Archives
+
+          <span className="text-[#E87B28]/80 text-[10px] uppercase tracking-[0.25em] font-semibold border-l border-[#2B3242] pl-3">
+            BENGALI NOSTALGIA ARCHIVES
           </span>
         </div>
 
-        <div className="text-right">
-          <span className="text-[10px] uppercase tracking-[0.3em] opacity-40 block font-mono">Memory Archives</span>
-          <span className="text-xs sm:text-sm font-mono opacity-70 text-[#E0D8D0]">VOL. 98 — SIDE A</span>
-        </div>
-      </div>
-
-      {/* Main Refined Bengali Title */}
-      <div className="text-center sm:text-left">
-        <div className="inline-block">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-bn-serif text-[#E0D8D0] leading-[1.05] tracking-tight opacity-95 drop-shadow-xl">
-            শেষ পাতার গান
-          </h1>
-          <div className="h-1 w-24 sm:w-32 bg-gradient-to-r from-[#F27D26] via-[#FFB074] to-transparent rounded-full mt-2 opacity-80" />
-        </div>
-
-        {/* Primary Thematic Quote with Distinct Left Border */}
-        <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
-          <p className="text-base sm:text-lg md:text-xl italic text-[#E0D8D0]/90 font-light border-l-2 border-[#F27D26] pl-4 sm:pl-5 max-w-xl text-left leading-relaxed">
-            “কিছু গান শেষ হয় না।
-            <br />
-            <span className="text-[#E0D8D0]/60">শুধু মানুষটা বদলে যায়।”</span>
-          </p>
-
-          <div className="text-left sm:text-right text-xs font-mono text-[#E0D8D0]/40 uppercase tracking-widest pl-4 sm:pl-0">
-            <span className="text-[#F27D26] block font-semibold mb-0.5">High Fidelity Audio</span>
-            <span>Recorded in 1998</span>
+        <div className="flex items-center gap-4 text-right">
+          <div className="text-[10px] uppercase tracking-[0.2em] opacity-60">
+            MEMORY ARCHIVES
+          </div>
+          <div className="px-2 py-0.5 rounded bg-[#101319] border border-[#2B3242] text-[#E87B28] text-[10px] font-bold">
+            VOL. 98 — SIDE A
           </div>
         </div>
       </div>
 
-      {/* Nostalgic Mood Badges */}
-      <div className="mt-6 flex flex-wrap items-center gap-2.5">
-        <span className="text-[10px] uppercase tracking-[0.2em] font-mono opacity-40 mr-1 hidden sm:inline">
-          Mood Atmosphere:
-        </span>
-        {moods.map((m) => {
-          const isActive = currentMood === m.id;
-          return (
-            <button
-              key={m.id}
-              onClick={() => {
-                audioSynth.playCassetteClick('press');
-                onMoodSelect(m.id);
-              }}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bn-sans flex items-center gap-2 transition-all duration-200 border ${
-                isActive
-                  ? 'bg-[#F27D26]/20 border-[#F27D26] text-[#E0D8D0] shadow-md shadow-[#F27D26]/10 scale-105 font-medium'
-                  : 'bg-[#1A1D23] border-[#303642] text-[#E0D8D0]/60 hover:text-[#E0D8D0] hover:border-[#303642]/80'
-              }`}
-            >
-              <span>{m.icon}</span>
-              <span>{m.label}</span>
-            </button>
-          );
-        })}
+      {/* 2. Hero Identity */}
+      <div className="text-center sm:text-left mb-8">
+        <div className="inline-block relative">
+          <span className="text-[11px] font-mono uppercase tracking-[0.3em] text-[#E87B28] block mb-1 font-bold">
+            SHESH PATAR GAAN — DIGITAL CASSETTE ARCHIVE
+          </span>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black font-bn-serif text-[#F0E8DF] leading-[1.05] tracking-tight drop-shadow-md">
+            শেষ পাতার গান
+          </h1>
+          <div className="h-0.5 w-28 sm:w-36 bg-gradient-to-r from-[#E87B28] via-[#FF9D42] to-transparent mt-2" />
+        </div>
+
+        {/* Emotionally Appropriate Bengali Tagline */}
+        <div className="mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-base sm:text-xl italic text-[#D4CCC1] font-light border-l-2 border-[#E87B28] pl-4 max-w-xl text-left leading-relaxed font-bn-serif">
+            “কিছু গান শেষ হয় না।
+            <br />
+            <span className="text-[#A59E95] not-italic text-sm font-bn-sans">শুধু মানুষটা বদলে যায়।” — শেষ পাতার ডায়েরি, ১৯৯৮</span>
+          </p>
+
+          <div className="text-left sm:text-right text-[10px] font-mono text-[#8E877E] uppercase tracking-widest pl-4 sm:pl-0 border-l sm:border-l-0 border-[#2B3242]">
+            <span className="text-[#E87B28] block font-bold mb-0.5">High Fidelity Analog Master</span>
+            <span>RESTORED & DIGITIZED</span>
+          </div>
+        </div>
       </div>
+
+      {/* 3. Mood Archive (Horizontal Category Selector with 5 Categories) */}
+      <div className="pt-2">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-[#A59E95] font-bold flex items-center gap-1.5">
+            <Disc className="w-3 h-3 text-[#E87B28]" /> mood archive (আবহ বিভাগ):
+          </span>
+          <span className="text-[10px] font-mono text-[#6E6860] hidden sm:inline">
+            SELECT ATMOSPHERE
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          {MOOD_CATEGORIES.map((m) => {
+            const isActive = currentMood === m.id;
+            return (
+              <button
+                key={m.id}
+                id={`mood-tab-${m.id}`}
+                onClick={() => {
+                  audioSynth.playCassetteClick('press');
+                  onMoodSelect(m.id);
+                }}
+                className={`px-3.5 py-2 rounded-xl text-xs font-bn-sans flex items-center gap-2 flex-shrink-0 transition-all duration-150 border ${
+                  isActive
+                    ? 'bg-[#E87B28]/15 border-[#E87B28] text-[#F0E8DF] font-bold shadow-md shadow-[#E87B28]/10'
+                    : 'bg-[#12151C] border-[#252C3A] text-[#B5AEA5] hover:text-[#F0E8DF] hover:border-[#333D50]'
+                }`}
+                title={m.subtitle}
+              >
+                <span className="text-sm">{m.icon}</span>
+                <span>{m.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
     </header>
   );
 };
+
