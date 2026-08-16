@@ -74,7 +74,7 @@ function MainAppContent() {
       <main className="relative z-10">
         
         {/* Archival Header with Printed Identity & Mood Categories */}
-        <HeaderTitle currentMood={currentMood} onMoodSelect={setCurrentMood} />
+        <HeaderTitle />
 
         {/* Real-time Live Listener Broadcast Indicator */}
         <LiveStationBar />

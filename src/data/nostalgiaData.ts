@@ -1,23 +1,100 @@
 import { Track, NostalgicQuote, NostalgicMemory, ScribbleNote } from '../types';
 
-export const YOUTUBE_PLAYLIST_ID = 'PLyvTjZP_txBc6kL86-2-hKL4Agx2E1SHl';
+export const YOUTUBE_PLAYLIST_ID = 'PLHKSA52iDlco';
 export const DEFAULT_VIDEO_ID = '_plZHJpjfZM';
+
+export interface MusicArchive {
+  id: string;
+  title: string;
+  englishTitle: string;
+  subtitle: string;
+  playlistId: string;
+  icon: string;
+  tapeNumber: string;
+  side: 'A' | 'B';
+  bias: string;
+  catalogCode: string;
+}
+
+export const MUSIC_ARCHIVES: Record<string, MusicArchive> = {
+  rain: {
+    id: 'rain',
+    title: 'বৃষ্টিভেজা দুপুর',
+    englishTitle: 'RAINY AFTERNOON',
+    subtitle: 'শ্রাবণের মেঘ ও ঝুম বৃষ্টি',
+    playlistId: 'PLHKSA52iDlco',
+    icon: '🌧️',
+    tapeNumber: 'TAPE 01',
+    side: 'A',
+    bias: 'NORMAL BIAS 120µs EQ',
+    catalogCode: 'ARCH-01-RAIN',
+  },
+  cassette: {
+    id: 'cassette',
+    title: 'ওয়াকম্যান ও ক্যাসেট',
+    englishTitle: 'WALKMAN & CASSETTES',
+    subtitle: 'টিডিকে ৯০ মিনিটের ক্যাসেট',
+    playlistId: 'PLEXYnou60qCI',
+    icon: '📼',
+    tapeNumber: 'TAPE 02',
+    side: 'A',
+    bias: 'HIGH BIAS (TYPE II) EQ',
+    catalogCode: 'ARCH-02-TAPE',
+  },
+  adda: {
+    id: 'adda',
+    title: 'উত্তর কলকাতার আড্ডা',
+    englishTitle: 'NORTH KOLKATA ADDA',
+    subtitle: 'টংয়ের চা ও পুরনো গিটার',
+    playlistId: 'PLKq15KUfR14w',
+    icon: '☕',
+    tapeNumber: 'TAPE 03',
+    side: 'B',
+    bias: 'NORMAL BIAS 120µs EQ',
+    catalogCode: 'ARCH-03-ADDA',
+  },
+  diary: {
+    id: 'diary',
+    title: 'ডায়েরির শেষ পাতা',
+    englishTitle: 'THE LAST PAGE',
+    subtitle: 'ব্যাকবেঞ্চের কাটাকাটি চিহ্ন',
+    playlistId: 'PLV1aJ7LX8U28',
+    icon: '📖',
+    tapeNumber: 'TAPE 04',
+    side: 'A',
+    bias: 'FERRO CHROME (TYPE III)',
+    catalogCode: 'ARCH-04-PAGE',
+  },
+  night: {
+    id: 'night',
+    title: 'শেষ রাতের গান',
+    englishTitle: 'SONGS AFTER MIDNIGHT',
+    subtitle: 'নিঝুম রাতের নির্জন সুর',
+    playlistId: 'PLA0UV4MO19MA',
+    icon: '🌙',
+    tapeNumber: 'TAPE 05',
+    side: 'B',
+    bias: 'METAL BIAS (TYPE IV)',
+    catalogCode: 'ARCH-05-NIGHT',
+  },
+};
 
 export interface MoodCategory {
   id: string;
   label: string;
   icon: string;
   subtitle: string;
-  playlistId?: string; // Structured so each mood can later receive its own real YouTube playlist ID
+  playlistId: string;
 }
 
-export const MOOD_CATEGORIES: MoodCategory[] = [
-  { id: 'rain', label: 'বৃষ্টিভেজা দুপুর', icon: '🌧️', subtitle: 'শ্রাবণের মেঘ ও ঝুম বৃষ্টি' },
-  { id: 'cassette', label: 'ওয়াকম্যান ও ক্যাসেট', icon: '📼', subtitle: 'টিডিকে ৯০ মিনিটের ক্যাসেট' },
-  { id: 'adda', label: 'উত্তর কলকাতার আড্ডা', icon: '☕', subtitle: 'টংয়ের চা ও পুরনো গিটার' },
-  { id: 'diary', label: 'ডায়েরির শেষ পাতা', icon: '📖', subtitle: 'ব্যাকবেঞ্চের কাটাকাটি চিহ্ন' },
-  { id: 'night', label: 'শেষ রাতের গান', icon: '🌙', subtitle: 'নিঝুম রাতের নির্জন সুর' },
-];
+export const MOOD_CATEGORIES: MoodCategory[] = Object.values(MUSIC_ARCHIVES).map((archive) => ({
+  id: archive.id,
+  label: archive.title,
+  icon: archive.icon,
+  subtitle: archive.subtitle,
+  playlistId: archive.playlistId,
+}));
+
 
 export const NOSTALGIC_TRACKS: Track[] = [
   {

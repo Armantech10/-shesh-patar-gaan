@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
-import { YOUTUBE_PLAYLIST_ID } from '../data/nostalgiaData';
+import { MUSIC_ARCHIVES, MusicArchive } from '../data/nostalgiaData';
 
 export interface YouTubeTrackInfo {
   title: string;
@@ -23,6 +23,10 @@ interface YouTubeMusicContextType {
   volume: number;
   isMuted: boolean;
   playlist: string[];
+  currentArchiveId: string;
+  currentArchive: MusicArchive;
+  isTransitioningArchive: boolean;
+  changeArchive: (archiveId: string) => void;
   playTrackByIndex: (index: number) => void;
   togglePlay: () => void;
   playNext: () => void;
@@ -41,17 +45,38 @@ declare global {
   }
 }
 
+// Helper to determine initial archive ID from URL hash (#rain, #cassette, #adda, #diary, #night)
+const getInitialArchiveId = (): string => {
+  if (typeof window !== 'undefined' && window.location.hash) {
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    if (MUSIC_ARCHIVES[hash]) {
+      return hash;
+    }
+  }
+  return 'rain';
+};
+
 export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [currentArchiveId, setCurrentArchiveId] = useState<string>(getInitialArchiveId());
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isTransitioningArchive, setIsTransitioningArchive] = useState(false);
   const [statusMessage, setStatusMessage] = useState('গান লোড হচ্ছে…');
   const [volume, setVolumeState] = useState(85);
   const [isMuted, setIsMuted] = useState(false);
   const [playlist, setPlaylist] = useState<string[]>([]);
+
+  const currentArchive = MUSIC_ARCHIVES[currentArchiveId] || MUSIC_ARCHIVES.rain;
   
+  // Synchronized ref for active archive ID to prevent stale closures in async YouTube callbacks
+  const activeArchiveIdRef = useRef<string>(currentArchiveId);
+  useEffect(() => {
+    activeArchiveIdRef.current = currentArchiveId;
+  }, [currentArchiveId]);
+
   const [currentTrack, setCurrentTrack] = useState<YouTubeTrackInfo>({
-    title: 'ইউটিউব প্লেলিস্ট (গান লোড হচ্ছে…)',
+    title: `ইউটিউব প্লেলিস্ট (${currentArchive.title} লোড হচ্ছে…)`,
     artist: 'শেষ পাতার গান',
     duration: 0,
     currentTime: 0,
@@ -82,8 +107,6 @@ export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ 
           height: '100%',
           width: '100%',
           playerVars: {
-            listType: 'playlist',
-            list: YOUTUBE_PLAYLIST_ID,
             autoplay: 0,
             controls: 1,
             modestbranding: 1,
@@ -99,6 +122,17 @@ export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ 
               setStatusMessage('গান শুনতে PLAY চাপুন');
               try {
                 event.target.setVolume(volume);
+                const initialArchiveId = activeArchiveIdRef.current;
+                const initialArchive = MUSIC_ARCHIVES[initialArchiveId] || MUSIC_ARCHIVES.rain;
+
+                if (typeof event.target.cuePlaylist === 'function') {
+                  event.target.cuePlaylist({
+                    listType: 'playlist',
+                    list: initialArchive.playlistId,
+                    index: 0,
+                  });
+                }
+
                 const pl = event.target.getPlaylist();
                 if (pl && Array.isArray(pl)) {
                   setPlaylist(pl);
@@ -107,7 +141,6 @@ export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ 
                     totalTracks: pl.length,
                   }));
                 }
-                // Extract video data if available
                 updateTrackMetadata(event.target);
               } catch (e) {
                 console.log('YT onReady notice:', e);
@@ -168,16 +201,23 @@ export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const updateTrackMetadata = (player: any) => {
     if (!player) return;
     try {
+      const activeArchiveId = activeArchiveIdRef.current;
+      const activeArchive = MUSIC_ARCHIVES[activeArchiveId] || MUSIC_ARCHIVES.rain;
+
       const data = player.getVideoData ? player.getVideoData() : null;
       const dur = player.getDuration ? player.getDuration() : 0;
       const index = player.getPlaylistIndex ? player.getPlaylistIndex() : 0;
       const pl = player.getPlaylist ? player.getPlaylist() : [];
 
+      if (pl && Array.isArray(pl) && pl.length > 0) {
+        setPlaylist(pl);
+      }
+
       if (data && data.title) {
         setCurrentTrack(prev => ({
           ...prev,
-          title: data.title || 'শেষ পাতার গান',
-          artist: data.author || 'বাংলা স্মৃতির অ্যালবাম',
+          title: data.title || activeArchive.title,
+          artist: data.author || activeArchive.englishTitle,
           duration: dur || prev.duration,
           videoId: data.video_id,
           playlistIndex: index,
@@ -221,6 +261,66 @@ export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ 
     return () => clearInterval(interval);
   }, []);
 
+  // Switch to a new archive playlist using YouTube API
+  const changeArchive = (archiveId: string) => {
+    const targetArchive = MUSIC_ARCHIVES[archiveId];
+    if (!targetArchive || archiveId === activeArchiveIdRef.current) return;
+
+    // Trigger subtle physical cassette transition feedback
+    setIsTransitioningArchive(true);
+    setIsLoading(true);
+    setStatusMessage(`আর্কাইভ লোড হচ্ছে: ${targetArchive.title}…`);
+
+    // Synchronize active archive ID state & ref immediately
+    setCurrentArchiveId(archiveId);
+    activeArchiveIdRef.current = archiveId;
+
+    // Clear old playlist state before loading new archive
+    setPlaylist([]);
+
+    // Update URL hash without forcing full page refresh (#rain, #cassette, #adda, #diary, #night)
+    if (typeof window !== 'undefined' && window.history) {
+      window.history.replaceState(null, '', `#${archiveId}`);
+    }
+
+    // Set initial loading track metadata for the new archive
+    setCurrentTrack({
+      title: `${targetArchive.title} — গান লোড হচ্ছে…`,
+      artist: targetArchive.englishTitle,
+      duration: 0,
+      currentTime: 0,
+      progress: 0,
+      playlistIndex: 0,
+      totalTracks: 1,
+    });
+
+    setTimeout(() => {
+      setIsTransitioningArchive(false);
+    }, 450);
+
+    if (playerRef.current) {
+      try {
+        if (typeof playerRef.current.loadPlaylist === 'function') {
+          playerRef.current.loadPlaylist({
+            listType: 'playlist',
+            list: targetArchive.playlistId,
+            index: 0,
+          });
+          setIsPlaying(true);
+        } else if (typeof playerRef.current.cuePlaylist === 'function') {
+          playerRef.current.cuePlaylist({
+            listType: 'playlist',
+            list: targetArchive.playlistId,
+            index: 0,
+          });
+        }
+      } catch (e) {
+        console.warn('Failed to load new playlist:', e);
+        setStatusMessage('গান চালাতে আবার PLAY চাপুন।');
+      }
+    }
+  };
+
   // Control Actions
   const togglePlay = () => {
     if (!playerRef.current) {
@@ -233,7 +333,6 @@ export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ 
         playerRef.current.pauseVideo();
         setIsPlaying(false);
       } else {
-        // Required for browser autoplay policy: play is initiated directly by user interaction
         playerRef.current.playVideo();
         setIsPlaying(true);
         setStatusMessage('বাজছে...');
@@ -323,6 +422,10 @@ export const YouTubeMusicProvider: React.FC<{ children: React.ReactNode }> = ({ 
         volume,
         isMuted,
         playlist,
+        currentArchiveId,
+        currentArchive,
+        isTransitioningArchive,
+        changeArchive,
         playTrackByIndex,
         togglePlay,
         playNext,
@@ -344,3 +447,4 @@ export const useYouTubeMusic = () => {
   }
   return context;
 };
+

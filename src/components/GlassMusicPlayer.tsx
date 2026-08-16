@@ -28,6 +28,7 @@ export const GlassMusicPlayer: React.FC = () => {
     volume,
     isMuted,
     playlist,
+    currentArchive,
     togglePlay,
     playNext,
     playPrev,
@@ -299,11 +300,19 @@ export const GlassMusicPlayer: React.FC = () => {
       {showPlaylist && (
         <div className="fixed bottom-24 right-4 sm:right-8 z-40 w-80 sm:w-96 max-h-[440px] p-5 rounded-2xl bg-[#10131B] border border-[#262E3D] shadow-2xl overflow-hidden flex flex-col animate-fade-in text-[#E2DAD1]">
           <div className="flex items-center justify-between pb-3 border-b border-[#232936] mb-3">
-            <div className="flex items-center gap-2">
-              <ListMusic className="w-4 h-4 text-[#E87B28]" />
-              <h4 className="font-bold font-bn-serif text-[#F0E8DF] text-sm">
-                ইউটিউব প্লেলিস্ট ({currentTrack.playlistIndex + 1}/{currentTrack.totalTracks})
-              </h4>
+            <div className="flex items-center gap-2 min-w-0">
+              <ListMusic className="w-4 h-4 text-[#E87B28] flex-shrink-0" />
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs">{currentArchive.icon}</span>
+                  <h4 className="font-bold font-bn-serif text-[#F0E8DF] text-sm truncate">
+                    {currentArchive.title}
+                  </h4>
+                </div>
+                <span className="text-[9px] font-mono text-[#8A847C] uppercase tracking-wider block">
+                  {currentArchive.tapeNumber} • ({currentTrack.playlistIndex + 1}/{currentTrack.totalTracks})
+                </span>
+              </div>
             </div>
             <button
               onClick={() => setShowPlaylist(false)}
@@ -317,7 +326,7 @@ export const GlassMusicPlayer: React.FC = () => {
             <div className="p-3 rounded-xl bg-[#08090E] border border-[#E87B28]/30 space-y-1.5">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-[#E87B28] uppercase tracking-wider font-bold">
-                  NOW PLAYING FROM YOUTUBE
+                  NOW PLAYING FROM {currentArchive.englishTitle}
                 </span>
                 <span className="w-2 h-2 rounded-full bg-[#E87B28] animate-pulse" />
               </div>
@@ -336,7 +345,7 @@ export const GlassMusicPlayer: React.FC = () => {
             {playlist.length > 0 && (
               <div className="space-y-1.5 pt-2">
                 <p className="text-[10px] font-mono text-[#8A847C] uppercase tracking-wider">
-                  প্লেলিস্ট ট্র্যাকসমূহ ({playlist.length} টি গান):
+                  আর্কাইভ গানসমূহ ({playlist.length} টি গান):
                 </p>
                 {playlist.map((item, idx) => (
                   <button
@@ -362,7 +371,7 @@ export const GlassMusicPlayer: React.FC = () => {
           </div>
 
           <div className="pt-2 mt-2 border-t border-[#232936] text-[10px] font-mono text-[#8A847C] text-center uppercase tracking-wider">
-            Official YouTube IFrame Player Active
+            {currentArchive.catalogCode} • Official YouTube Playlist Active
           </div>
         </div>
       )}

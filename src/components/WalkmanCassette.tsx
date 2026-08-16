@@ -10,18 +10,27 @@ export const WalkmanCassette: React.FC = () => {
     statusMessage,
     currentTrack,
     volume,
+    currentArchive,
+    isTransitioningArchive,
     togglePlay,
     playNext,
     playPrev,
     setVolume,
   } = useYouTubeMusic();
 
-  const [side, setSide] = useState<'A' | 'B'>('A');
+  const [side, setSide] = useState<'A' | 'B'>(currentArchive.side || 'A');
   const [isRewinding, setIsRewinding] = useState(false);
   const [pencilAngle, setPencilAngle] = useState(25);
   const [tapeCounter, setTapeCounter] = useState(128);
   const [vuLeft, setVuLeft] = useState(20);
   const [vuRight, setVuRight] = useState(25);
+
+  // Sync cassette side display when currentArchive changes
+  useEffect(() => {
+    if (currentArchive && currentArchive.side) {
+      setSide(currentArchive.side);
+    }
+  }, [currentArchive]);
 
   // Animate analog VU meters & tape counter dynamically ONLY when real audio is playing
   useEffect(() => {
@@ -99,29 +108,15 @@ export const WalkmanCassette: React.FC = () => {
         {/* Walkman Head Top Plate (Branding, Headphone Jack, Indicators) */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 border-b border-[#232936]">
           <div className="flex items-center gap-3">
-            {/* Vintage Walkman Brand Emblem */}
-            <div className="px-3 py-1 rounded bg-[#090B10] border border-[#232936] shadow-inner flex items-center gap-2">
-              <span className="font-mono text-xs font-black tracking-widest text-[#E87B28] uppercase">
-                SONY
-              </span>
-              <span className="text-[10px] font-mono tracking-widest text-[#9A938A] font-bold border-l border-[#232936] pl-2">
-                WALKMAN WM-EX1
-              </span>
-            </div>
-            
-            {/* Auto Reverse & Dolby System Badges */}
-            <div className="hidden sm:flex items-center gap-1.5 text-[9px] font-mono text-[#8A847C]">
-              <span className="px-2 py-0.5 rounded bg-[#10131B] border border-[#232936]">
-                AUTO REVERSE
-              </span>
-              <span className="px-2 py-0.5 rounded bg-[#10131B] border border-[#232936] text-[#E87B28] font-bold">
-                DOLBY B NR
-              </span>
-            </div>
+            <span className="font-mono text-xs font-black tracking-widest text-[#E87B28] uppercase border border-[#E87B28]/40 px-2 py-0.5 rounded bg-[#E87B28]/10">
+              SONY WALKMAN
+            </span>
+            <span className="font-mono text-[10px] text-[#A59E95] tracking-wider hidden sm:inline">
+              WM-FX290 • STEREO CASSETTE PLAYER
+            </span>
           </div>
 
-          {/* Mechanical Tape Counter & 3.5mm Headphone Jack */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 text-xs font-mono text-[#8E877E]">
             {/* 3.5mm Headphone Jack Visual */}
             <div className="flex items-center gap-1.5" title="3.5mm Stereo Headphone Output">
               <Headphones className="w-3.5 h-3.5 text-[#E87B28]" />
@@ -130,7 +125,7 @@ export const WalkmanCassette: React.FC = () => {
               </div>
             </div>
 
-            {/* Analog Mechanical Odometer Tape Counter */}
+            {/* Mechanical Tape Counter */}
             <div
               onClick={handleResetCounter}
               className="cursor-pointer group flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#080A0E] border border-[#232936] shadow-inner"
@@ -193,16 +188,16 @@ export const WalkmanCassette: React.FC = () => {
             <div className="absolute -top-1 right-12 w-6 h-1.5 bg-[#08090E] rounded-b border-x border-b border-[#303848]" />
 
             {/* Authentic Worn Handwritten Bengali Paper Label */}
-            <div className="relative rounded-lg p-3 sm:p-3.5 cassette-label-worn text-stone-900 border border-stone-400 shadow-md">
+            <div className={`relative rounded-lg p-3 sm:p-3.5 cassette-label-worn text-stone-900 border border-stone-400 shadow-md transition-all duration-300 ${isTransitioningArchive ? 'opacity-30 blur-[1px]' : 'opacity-100 blur-0'}`}>
               
               {/* Header Spec Ribbon on Tape */}
               <div className="flex items-center justify-between border-b-2 border-dashed border-stone-400/80 pb-1.5 mb-1.5">
                 <div className="flex items-center gap-2">
                   <span className="px-1.5 py-0.5 bg-[#12151B] text-stone-100 font-mono text-[9px] font-bold rounded">
-                    TDK D-90
+                    TDK D-90 • {currentArchive.tapeNumber}
                   </span>
                   <span className="font-mono text-[9px] tracking-wider text-stone-700 font-semibold hidden sm:inline">
-                    IEC-I / NORMAL BIAS 120µs EQ
+                    {currentArchive.bias}
                   </span>
                 </div>
                 
@@ -215,22 +210,28 @@ export const WalkmanCassette: React.FC = () => {
                 </div>
               </div>
 
-              {/* Handwritten Bengali Song Title from REAL YouTube Playlist */}
+              {/* Dynamic Bengali Archive & Track Title */}
               <div className="flex items-center justify-between pt-0.5">
                 <div className="min-w-0 pr-2">
-                  <h3 className="font-bn-serif text-lg sm:text-xl font-black text-stone-900 leading-tight tracking-tight drop-shadow-sm truncate">
-                    {currentTrack.title || 'শেষ পাতার গান (সাইড-এ)'}
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-xs">{currentArchive.icon}</span>
+                    <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-amber-950 bg-amber-200/60 px-1.5 py-0.2 rounded">
+                      {currentArchive.title}
+                    </span>
+                  </div>
+                  <h3 className="font-bn-serif text-base sm:text-lg font-black text-stone-900 leading-tight tracking-tight drop-shadow-sm truncate">
+                    {currentTrack.title || currentArchive.title}
                   </h3>
-                  <p className="font-handwriting text-base sm:text-lg text-blue-900 font-bold leading-none mt-1 truncate">
-                    {currentTrack.artist || '“খাতার শেষ পাতার সুরগুলো • ১৯৯৮”'}
+                  <p className="font-handwriting text-sm sm:text-base text-blue-950 font-bold leading-none mt-1 truncate">
+                    {currentTrack.artist || currentArchive.subtitle}
                   </p>
                 </div>
                 <div className="text-right flex-shrink-0 hidden sm:block">
                   <span className="font-typewriter text-[10px] text-stone-700 block uppercase tracking-wider">
-                    LOW NOISE
+                    {currentArchive.catalogCode}
                   </span>
                   <span className="font-mono text-[9px] text-stone-500">
-                    OUTPUT HIGH
+                    90 MIN / ANALOG
                   </span>
                 </div>
               </div>
