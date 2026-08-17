@@ -4,237 +4,241 @@
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Website
 
-### 🔗 [Visit Shesh Patar Gaan Live Experience](https://shesh-patar-gaan.vercel.app/)
-
----
-
-## 📸 Screenshots / Preview
-
-### 🌧️ Rain Archive Atmosphere
-![Rain Archive Interface](assets/screenshots/rain-archive.png)
-*Rainy Afternoon (বৃষ্টিভেজা দুপুর) mood atmosphere with initial Walkman player deck & catalog markings.*
-
-### 📼 Walkman & Cassette Player View
-![Walkman Cassette Player Interface](assets/screenshots/cassette-archive.jpg)
-*Walkman & Cassettes (ওয়াকম্যান ও ক্যাসেট) mood selected with TDK D-90 cassette label and player controls.*
-
-### 📻 High-Fidelity Sony Walkman Deck
-![Sony Walkman WM-FX290 Closeup](assets/screenshots/walkman-player.png)
-*Detailed view of the Sony Walkman WM-FX290 stereo cassette deck with animated spools, VU meter, and side-flip controls.*
-
-### 📖 Nostalgic Memory Wall & Archives
-![Nostalgic Memory Cards Grid](assets/screenshots/memories-grid.png)
-*Grid of classic Bengali nostalgia memories including school notebook backbenches, roadside tea stall chats, and handwritten inland letters.*
-
-### 🎹 Interactive Bengali Acoustic Chords Synthesizer
-![Interactive Acoustic Chords Synthesizer](assets/screenshots/acoustic-synth.png)
-*Interactive Swara Synthesizer allowing listeners to play Bengali acoustic notes (সা, রে, গা, মা, পা, ধা, নি) directly via keyboard keys.*
+- **Live Website**: [https://shesh-patar-gaan.vercel.app/](https://shesh-patar-gaan.vercel.app/)
 
 ---
 
-## 🎞️ What is Shesh Patar Gaan?
+## 📱 Android Mobile App
 
-**শেষ পাতার গান (Shesh Patar Gaan)** is a web experience crafted to preserve and celebrate Bengali musical nostalgia. Inspired by 90s cassette culture, roadside tea stall chats (*টংয়ের চায়ের আড্ডা*), monsoon afternoons, requested radio shows, and handwritten diary scribbles on backbenches, the platform connects listeners to iconic melodies through a vintage analog interface.
+An installable Android APK is available for direct testing and usage on Android devices.
 
-Rather than acting as a standard music player, **Shesh Patar Gaan** serves as a digital archive where each playlist represents a distinct mood, era, and personal memory.
+### Download / Install APK
 
----
+- 📥 **[Download Android APK (Direct Link)](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)**
+- 📲 **[Open EAS Build & Install Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)**
 
-## 🎧 Archive Experience
-
-The application features five distinct nostalgia archives:
-
-| Icon | Bengali Title | English Title | Atmosphere & Subtitle | Catalog Code |
-| :---: | :--- | :--- | :--- | :--- |
-| 🌧️ | **বৃষ্টিভেজা দুপুর** | RAINY AFTERNOON | শ্রাবণের মেঘ ও ঝুম বৃষ্টি | `ARCH-01-RAIN` |
-| 📼 | **ওয়াকম্যান ও ক্যাসেট** | WALKMAN & CASSETTES | টিডিকে ৯০ মিনিটের ক্যাসেট | `ARCH-02-TAPE` |
-| ☕ | **উত্তর কলকাতার আড্ডা** | NORTH KOLKATA ADDA | টংয়ের চা ও পুরনো গিটার | `ARCH-03-ADDA` |
-| 📖 | **ডায়েরির শেষ পাতা** | THE LAST PAGE | ব্যাকবেঞ্চের কাটাকাটি চিহ্ন | `ARCH-04-PAGE` |
-| 🌙 | **শেষ রাতের গান** | SONGS AFTER MIDNIGHT | নিঝুম রাতের নির্জন সুর | `ARCH-05-NIGHT` |
-
-Listeners can switch seamlessly between archives using the top **Archive Selector** tab bar.
+> **Note**: The EAS installation page can be opened directly on Android mobile devices to download and install the app. Alternatively, scan the QR code on the EAS build page using your Android phone's camera.
 
 ---
 
-## 🎵 Music Experience
+## 🐙 GitHub Repository
 
-The audio system is powered by a hidden YouTube IFrame API integration:
-
-- **Seamless Archive Switching**: Dynamically loads real YouTube playlists when selecting an atmosphere.
-- **Full Transport Controls**: Play, pause, skip forward, skip backward, and seek using the timeline scrubber.
-- **Interactive Playlist Drawer**: Popup drawer listing all tracks in the active playlist with real-time active track highlighting.
-- **Track & Artist Metadata**: Live track title, channel/artist name, duration, and progress percentage.
-- **Volume & Mute Controls**: Master volume slider with mute/unmute toggles.
-- **Real-Time Visualizer**: Animated audio wave indicator reflecting active playback states.
-
----
-
-## 📼 Cassette / Analog Interface
-
-The visual centerpiece is a Walkman cassette player deck:
-
-- **Authentic Cassette Aesthetics**: Stamped tape numbers (`TAPE 01`–`05`), tape side markers (`SIDE A` / `SIDE B`), and magnetic tape bias specifications (`NORMAL BIAS`, `HIGH BIAS TYPE II`, `FERRO CHROME`, `METAL BIAS`).
-- **Animated Tape Spools**: Dual counter-rotating reels that spin dynamically during playback and speed up during fast-forward/rewind actions.
-- **Realistic Audio Feedback**: Web Audio API-synthesized mechanical clicks on deck button presses and tape ejects.
-- **Smoked Acrylic Window**: Layered worn glass texture with molded screw details.
+- **GitHub Repository**: [https://github.com/Armantech10/-shesh-patar-gaan.git](https://github.com/Armantech10/-shesh-patar-gaan.git)
 
 ---
 
 ## ✨ Features
 
-- 🎼 **Curated Bengali Nostalgia Archives**: Five distinct atmosphere categories.
-- 📼 **Walkman-Inspired Interface**: Analog cassette deck with animated spools and physical button sounds.
-- 🎧 **YouTube-Powered Audio**: Native YouTube IFrame API integration for seamless streaming.
-- 🗂️ **Interactive Playlist Drawer**: View track counts and browse songs within the active archive.
-- 📻 **Live Listener Broadcast**: Real-time online listener presence powered by Firebase Realtime Database.
-- 🎹 **Interactive Acoustic Synth**: Play Bengali notes (*সা, রে, গা, মা, পা, ধা, নি*) via keyboard plucks.
-- 📖 **Nostalgic Diary Wall**: Read and share handwritten memory scribbles with custom ink colors.
-- 🇧🇩 **Bengali-First Typography**: Curated typography using custom Bengali serif and handwriting fonts.
-- 📱 **Fully Responsive**: Optimized for desktop, tablet, and mobile browsers.
+- 🎼 **Curated Bengali Music Archives**: Five distinct atmosphere categories (*বৃষ্টিভেজা দুপুর*, *ওয়াকম্যান ও ক্যাসেট*, *উত্তর কলকাতার আড্ডা*, *ডায়েরির শেষ পাতা*, *শেষ রাতের গান*).
+- 📼 **Walkman-Style Cassette Player Deck**: Retro analog cassette deck featuring animated spools, cassette markings (`NORMAL BIAS`, `HIGH BIAS`), side labels (`SIDE A`/`SIDE B`), and synthesized physical button sounds.
+- 🎧 **Hidden YouTube Audio Engine**: Background YouTube IFrame API integration for seamless music streaming and track controls.
+- 🗂️ **Archive & Track Selection**: Dynamic atmosphere switching with interactive track drawer showing active song highlights.
+- 🇧🇩 **Bengali-First Interface**: Authentic Bengali typography, poem quotes, memory scribbles, and cultural aesthetics.
+- 📱 **Cross-Platform Mobile Application**: Native React Native / Expo app replicating the desktop cassette deck experience.
+- 📻 **Firebase Realtime Database Listener Presence**: Real-time broadcast system tracking online listeners across web and mobile.
+- 📊 **Active & Peak Listener Statistics**: Live counts for active concurrent listeners, daily peak listeners, total daily plays, and top tracks.
+- 🤝 **Mobile & Web Integration**: Web and mobile clients report presence to the same unified Firebase Realtime Database instance.
 
 ---
 
-## 🛠️ Tech Stack
+## 📱 Mobile App Overview
 
-- **Frontend Framework**: React 19
-- **Language**: TypeScript
-- **Build Tool**: Vite
-- **Styling**: Vanilla CSS + Tailwind CSS v4
-- **Icons**: Lucide React
-- **Audio Engine**: YouTube IFrame API + Web Audio API (`AudioContext`)
-- **Realtime Database**: Firebase Realtime Database (for presence & stats)
-- **Deployment**: Vercel
+The mobile application is built using **React Native** and **Expo SDK 54**, located in the `/mobile` subdirectory of this repository.
+
+### Mobile Project Structure
+
+- `mobile/App.tsx`: Main React Native entry point, font loader, and navigation setup.
+- `mobile/src/components/WalkmanCassetteMobile.tsx`: Mobile-optimized vintage cassette deck interface.
+- `mobile/src/context/MobileYouTubeContext.tsx`: Mobile YouTube playback engine state manager.
+- `mobile/src/services/mobileFirebasePresence.ts`: Realtime Database presence service using `EXPO_PUBLIC_FIREBASE_*` variables.
+- `mobile/src/navigation/BottomTabNavigator.tsx`: Bottom navigation between Cassette Deck, Archives, and Memory Wall screens.
+
+### How to Run Mobile Locally
+
+```bash
+cd mobile
+npm install
+npx expo start
+```
+
+Use `npx expo start --android` to open in an Android emulator or scan the Expo QR code using Expo Go.
 
 ---
 
-## 🏗️ Project Structure
+## 🤖 Android APK (EAS Build)
+
+The standalone Android APK was generated using **Expo Application Services (EAS Build)** under the preview profile.
+
+- **EAS Profile**: `preview`
+- **Build Type**: `apk` (`android.buildType: "apk"` in `mobile/eas.json`)
+- **Use Case**: Direct APK distribution for Android device installation and offline/unrestricted testing.
+
+---
+
+## 🔴 Firebase Realtime Database
+
+Firebase Realtime Database powers the live presence and listener metrics across web and mobile clients.
+
+### Purpose
+
+1. **Active Listener Tracking**: Tracks active listening sessions across web and mobile platforms in real time.
+2. **Peak Concurrent Listeners**: Dynamically updates and persists the daily peak concurrent listener count.
+3. **Daily Play Statistics**: Increments daily play counts and track-specific statistics.
+
+### Database Paths Used in Codebase
+
+- `/presence/${sessionId}`: Active listener session objects containing timestamp, track ID, track title, and platform (`mobile` or `web`). Managed automatically with `onDisconnect().remove()`.
+- `/stats/${YYYY-MM-DD}`: Daily aggregate statistics storing `peakConcurrent` and `totalPlays`.
+- `/trackStats/${YYYY-MM-DD}/${cleanTrackId}`: Per-track daily play counts and titles.
+- `/.info/connected`: Connection state listener node.
+
+---
+
+## 🔑 Environment Variables
+
+To connect web and mobile apps to Firebase, configure environment variables in private `.env` files.
+
+### Web Environment Variables (`.env`)
+
+```env
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_DATABASE_URL=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
+
+### Mobile Environment Variables (`mobile/.env`)
+
+```env
+EXPO_PUBLIC_FIREBASE_API_KEY=
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=
+EXPO_PUBLIC_FIREBASE_DATABASE_URL=
+EXPO_PUBLIC_FIREBASE_PROJECT_ID=
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=
+EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+EXPO_PUBLIC_FIREBASE_APP_ID=
+```
+
+> ⚠️ **Security Policy**:
+> - Real environment credentials must **NEVER** be committed to GitHub repository.
+> - `mobile/.env` and `.env` are strictly ignored by `.gitignore`.
+> - EAS Build uses cloud environment variables configured securely in the EAS project dashboard/CLI.
+
+---
+
+## 🔒 Firebase Security
+
+- Realtime Database security rules restrict read/write access to valid presence nodes (`/presence`, `/stats`, `/trackStats`).
+- No Firebase service-account private keys or secret credentials are stored in the git repository.
+
+---
+
+## 📁 Repository Structure
 
 ```
 shesh-patar-gaan/
+├── docs/
+│   └── RELEASE.md                     # Release notes & APK download documentation
+├── mobile/
+│   ├── assets/                        # App icons, splash screens, and images
+│   ├── src/
+│   │   ├── components/                # React Native UI components (WalkmanCassetteMobile, etc.)
+│   │   ├── context/                   # YouTube playback & listener context providers
+│   │   ├── data/                      # Archive definitions & songs
+│   │   ├── navigation/                # Bottom tab & stack navigators
+│   │   └── services/                  # Mobile Firebase presence integration
+│   ├── .env.example                   # Mobile environment variables template
+│   ├── .gitignore                     # Mobile-specific ignore rules (ignores .env)
+│   ├── app.json                       # Expo project configuration
+│   ├── eas.json                       # EAS Build profile configuration (preview -> apk)
+│   └── package.json                   # Mobile dependencies & scripts
+├── public/                            # Web static assets
 ├── src/
-│   ├── components/
-│   │   ├── HeaderTitle.tsx             # Archival identity & mood tab selector
-│   │   ├── WalkmanCassette.tsx         # Vintage Walkman cassette deck centerpiece
-│   │   ├── GlassMusicPlayer.tsx        # Fixed bottom playback deck & playlist drawer
-│   │   ├── LiveStationBar.tsx          # Real-time listener count broadcast bar
-│   │   ├── DiaryLastPage.tsx           # Interactive notebook memory wall
-│   │   ├── MemoriesGrid.tsx            # Historical nostalgia memory cards & modal
-│   │   ├── InteractiveKeyboardChords.tsx # Acoustic Bengali note synthesizer
-│   │   ├── BackgroundAmbience.tsx      # Dynamic background particle ambience
-│   │   ├── RotatingQuotes.tsx          # Rotating nostalgic Bengali poetry quotes
-│   │   └── WriteMemoryModal.tsx        # Modal for writing new scribbles
-│   ├── context/
-│   │   ├── YouTubeMusicContext.tsx     # YouTube IFrame API state & archive switching logic
-│   │   └── LiveListenerContext.tsx     # Firebase presence & listener count provider
-│   ├── data/
-│   │   └── nostalgiaData.ts            # Authoritative archive definitions & memory lists
-│   ├── services/
-│   │   └── firebasePresence.ts         # Firebase Realtime Database integration
-│   ├── utils/
-│   │   └── audioSynth.ts               # Mechanical cassette click synthesizer
-│   ├── types.ts                        # TypeScript interfaces & types
-│   ├── App.tsx                         # Main application layout
-│   ├── main.tsx                        # Application root entry point
-│   └── index.css                       # Custom retro styles & font imports
-├── public/                             # Static public assets
-├── package.json                        # Node.js dependencies & scripts
-├── vite.config.ts                      # Vite build configuration
-└── README.md                           # Documentation
+│   ├── components/                    # Web UI components (WalkmanCassette, GlassMusicPlayer, etc.)
+│   ├── config/                        # Web Firebase configuration reader
+│   ├── context/                       # Web music & presence contexts
+│   ├── data/                          # Shared archive definitions
+│   ├── services/                      # Web Firebase presence service
+│   ├── utils/                         # Mechanical cassette click synthesizer
+│   ├── App.tsx                        # Main web layout
+│   └── index.css                      # Retro styling & Bengali font declarations
+├── .env.example                       # Web environment variables template
+├── .gitignore                         # Root gitignore rules
+├── package.json                       # Web dependencies & scripts
+├── README.md                          # Main project documentation
+└── vite.config.ts                     # Vite web build configuration
 ```
 
 ---
 
-## 🚀 Run Locally
+## 💻 Local Development
 
-### Prerequisites
+### Running the Web Application
 
-- Node.js (v18 or higher recommended)
-- npm or yarn
+```bash
+# Install root dependencies
+npm install
 
-### Installation Steps
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Armantech10/-shesh-patar-gaan.git
-   cd -shesh-patar-gaan
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Configure Environment Variables** (Optional, for Firebase presence):
-   Create a `.env` file in the root directory based on `.env.example`:
-   ```bash
-   cp .env.example .env
-   ```
-
-4. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-   Open your browser at `http://localhost:3000/`.
-
----
-
-## 🔐 Environment Variables
-
-To enable real-time live listener counts and playback statistics via Firebase, configure the following keys in your `.env` file:
-
-```env
-VITE_FIREBASE_API_KEY=your_firebase_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_project_id.firebaseapp.com
-VITE_FIREBASE_DATABASE_URL=https://your_project_id-default-rtdb.firebaseio.com
-VITE_FIREBASE_PROJECT_ID=your_project_id
-VITE_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-VITE_FIREBASE_APP_ID=your_app_id
+# Start Vite web dev server
+npm run dev
 ```
 
-*Note: The app will run smoothly even without Firebase credentials using fallback local stats.*
+The web app will run locally at `http://localhost:3000/`.
+
+### Running the Mobile Application
+
+```bash
+# Navigate to mobile app directory
+cd mobile
+
+# Install mobile dependencies
+npm install
+
+# Start Expo development server
+npx expo start
+```
 
 ---
 
-## 📚 Playlist Archives (Source of Truth)
+## 🚀 Deployment Overview
 
-The five archives map to these exact YouTube playlist IDs configured in `src/data/nostalgiaData.ts`:
-
-| Archive Name | Archive ID | YouTube Playlist ID |
-| :--- | :---: | :---: |
-| 🌧️ **বৃষ্টিভেজা দুপুর** | `rain` | `PLHKSA52iDlco` |
-| 📼 **ওয়াকম্যান ও ক্যাসেট** | `cassette` | `PLEXYnou60qCI` |
-| ☕ **উত্তর কলকাতার আড্ডা** | `adda` | `PLKq15KUfR14w` |
-| 📖 **ডায়েরির শেষ পাতা** | `diary` | `PLV1aJ7LX8U28` |
-| 🌙 **শেষ রাতের গান** | `night` | `PLA0UV4MO19MA` |
+- **Web Application**: Deployed on Vercel at [https://shesh-patar-gaan.vercel.app/](https://shesh-patar-gaan.vercel.app/)
+- **Mobile Android App**: Built via Expo EAS Build (`preview` profile) as a standalone installable Android APK.
+- **Backend & Database**: Firebase Realtime Database providing real-time presence sync across web and mobile clients.
 
 ---
 
-## 🎨 Design Philosophy
+## 📲 How to Install the APK on Android
 
-- **Bengali Cultural Nostalgia**: Grounded in classic Bengali literature, requested radio shows, and vintage cassette culture.
-- **Archival Catalog Aesthetic**: Visual design modeled after vinyl catalog cards, Dolby tape markings, and typewriter typography.
-- **Cinematic Warmth**: Deep dark slate palette (`#0A0C10`) paired with warm amber lighting (`#E87B28`) and subtle film grain overlay.
-- **Tactile Audio Feedback**: Mechanical deck clicks ground digital interactions in physical audio nostalgia.
-
----
-
-## 🌐 Deployment
-
-The application is deployed on Vercel:
-
-- **Live URL**: [https://shesh-patar-gaan.vercel.app/](https://shesh-patar-gaan.vercel.app/)
+1. Open the **[EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)** on your Android phone browser or scan the QR code.
+2. Tap **Install** or tap the **[Direct APK Download Link](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)**.
+3. Once downloaded, open the `.apk` file from your browser downloads or File Manager.
+4. If Android asks for permission, enable **Allow installation from unknown sources** for your browser/file manager.
+5. Tap **Install** and open **শেষ পাতার গান**!
 
 ---
 
-## 👨‍💻 Author
+## 📋 Release Information
 
-**Arman** ([@Armantech10](https://github.com/Armantech10))
+| Item | Details |
+| :--- | :--- |
+| **Project Title** | শেষ পাতার গান — Shesh Patar Gaan |
+| **Target Platform** | Android |
+| **Build System** | Expo EAS Build (Preview APK Profile) |
+| **Expo Account** | `armaan_11` |
+| **EAS Project** | `shesh-patar-gaan-mobile` |
+| **EAS Build ID** | `375460c9-6dfa-4c87-a0e8-f70d13e08c0e` |
 
 ---
 
-## 📄 License
+## 🔗 Quick Links
 
-*No license has currently been specified for this project.*
+- 🐙 **GitHub Repository**: [https://github.com/Armantech10/-shesh-patar-gaan.git](https://github.com/Armantech10/-shesh-patar-gaan.git)
+- 📲 **EAS Build Page**: [Open Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)
+- 📥 **Direct APK Download**: [Download Android APK](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)
+- 🌐 **Live Website**: [https://shesh-patar-gaan.vercel.app/](https://shesh-patar-gaan.vercel.app/)

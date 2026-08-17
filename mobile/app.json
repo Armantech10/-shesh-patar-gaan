@@ -15,7 +15,9 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.sheshpatargaan.app",
       "infoPlist": {
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": [
+          "audio"
+        ]
       }
     },
     "android": {
@@ -27,6 +29,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "63b42517-a0eb-4eb1-a835-ff2d1bec96f1"
+      }
+    },
+    "owner": "armaan_11"
   }
 }
