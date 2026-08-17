@@ -15,16 +15,21 @@ The mobile application brings the complete Bengali nostalgia cassette deck exper
 
 ---
 
-## 📥 Android APK Download & Installation
+## 📱 Android APK
 
-A standalone Android APK build is available via Expo EAS:
+### Latest Release
 
-- 📥 **[Download Android APK (Direct Link)](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)**
-- 📲 **[Open EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)**
+**Shesh Patar Gaan — Android APK**
+
+[Download Latest Android APK](https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk)
+
+**Build ID:** 16e17e43-42cc-42a0-9464-b98d00efe55c
+
+[View EAS Build](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c)
 
 ### How to Install on Android
 
-1. Open the [EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e) on your Android device or scan the QR code.
+1. Open the [EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c) on your Android device or scan the QR code.
 2. Download the `.apk` file.
 3. Allow installation from unknown sources in Android settings if prompted.
 4. Tap **Install** to launch the mobile app.
@@ -127,5 +132,6 @@ npx eas-cli build --platform android --profile preview
 
 - **Account**: `armaan_11`
 - **Project**: `shesh-patar-gaan-mobile`
-- **Build ID**: `375460c9-6dfa-4c87-a0e8-f70d13e08c0e`
+- **Build ID**: `16e17e43-42cc-42a0-9464-b98d00efe55c`
 - **Package Name**: `com.sheshpatargaan.app`
+- **APK Download**: [Download Latest Android APK](https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk)

@@ -4,7 +4,7 @@
     "slug": "shesh-patar-gaan-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/shesh-patar-app-icon.png",
     "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
@@ -22,8 +22,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0A0C10"
+        "foregroundImage": "./assets/shesh-patar-adaptive-foreground.png",
+        "backgroundColor": "#000000"
       },
       "package": "com.sheshpatargaan.app"
     },

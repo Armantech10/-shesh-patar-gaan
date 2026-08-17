@@ -4,9 +4,9 @@
 - **Platform**: Android
 - **Build System**: Expo EAS Build
 - **Profile**: preview
-- **Build ID**: `375460c9-6dfa-4c87-a0e8-f70d13e08c0e`
-- **APK**: [https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)
-- **Install Page**: [https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)
+- **Build ID**: `16e17e43-42cc-42a0-9464-b98d00efe55c`
+- **APK**: [https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk](https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk)
+- **Install Page**: [https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c)
 - **GitHub**: [https://github.com/Armantech10/-shesh-patar-gaan.git](https://github.com/Armantech10/-shesh-patar-gaan.git)
 
 ---
@@ -26,8 +26,8 @@ This Android APK package is an internal preview and testing release generated vi
 
 ## 📲 How to Install
 
-1. Open the [EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e) directly on an Android device or scan its QR code.
-2. Download the `.apk` file (`https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk`).
+1. Open the [EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c) directly on an Android device or scan its QR code.
+2. Download the `.apk` file (`https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk`).
 3. Tap the downloaded file to initiate installation.
 4. Allow installation from unknown sources if prompted by Android.
 5. Launch **শেষ পাতার গান**!

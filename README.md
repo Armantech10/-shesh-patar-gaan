@@ -10,14 +10,17 @@
 
 ---
 
-## 📱 Android Mobile App
+## 📱 Android APK
 
-An installable Android APK is available for direct testing and usage on Android devices.
+### Latest Release
 
-### Download / Install APK
+**Shesh Patar Gaan — Android APK**
 
-- 📥 **[Download Android APK (Direct Link)](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)**
-- 📲 **[Open EAS Build & Install Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)**
+[Download Latest Android APK](https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk)
+
+**Build ID:** 16e17e43-42cc-42a0-9464-b98d00efe55c
+
+[View EAS Build](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c)
 
 > **Note**: The EAS installation page can be opened directly on Android mobile devices to download and install the app. Alternatively, scan the QR code on the EAS build page using your Android phone's camera.
 
@@ -215,8 +218,8 @@ npx expo start
 
 ## 📲 How to Install the APK on Android
 
-1. Open the **[EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)** on your Android phone browser or scan the QR code.
-2. Tap **Install** or tap the **[Direct APK Download Link](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)**.
+1. Open the **[EAS Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c)** on your Android phone browser or scan the QR code.
+2. Tap **Install** or tap the **[Direct APK Download Link](https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk)**.
 3. Once downloaded, open the `.apk` file from your browser downloads or File Manager.
 4. If Android asks for permission, enable **Allow installation from unknown sources** for your browser/file manager.
 5. Tap **Install** and open **শেষ পাতার গান**!
@@ -232,13 +235,13 @@ npx expo start
 | **Build System** | Expo EAS Build (Preview APK Profile) |
 | **Expo Account** | `armaan_11` |
 | **EAS Project** | `shesh-patar-gaan-mobile` |
-| **EAS Build ID** | `375460c9-6dfa-4c87-a0e8-f70d13e08c0e` |
+| **EAS Build ID** | `16e17e43-42cc-42a0-9464-b98d00efe55c` |
 
 ---
 
 ## 🔗 Quick Links
 
 - 🐙 **GitHub Repository**: [https://github.com/Armantech10/-shesh-patar-gaan.git](https://github.com/Armantech10/-shesh-patar-gaan.git)
-- 📲 **EAS Build Page**: [Open Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/375460c9-6dfa-4c87-a0e8-f70d13e08c0e)
-- 📥 **Direct APK Download**: [Download Android APK](https://expo.dev/artifacts/eas/Kgbpvbwu0_Gc_zqiCzJXU0JKZLASLP1iUXmLK8W1DHo.apk)
+- 📲 **EAS Build Page**: [Open Build Page](https://expo.dev/accounts/armaan_11/projects/shesh-patar-gaan-mobile/builds/16e17e43-42cc-42a0-9464-b98d00efe55c)
+- 📥 **Direct APK Download**: [Download Android APK](https://expo.dev/artifacts/eas/LyekE8NLy-aOn9_n3yHpkaxHBNPe1TFbn8SXbDt_sLE.apk)
 - 🌐 **Live Website**: [https://shesh-patar-gaan.vercel.app/](https://shesh-patar-gaan.vercel.app/)
