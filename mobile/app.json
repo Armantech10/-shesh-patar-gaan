@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Shesh Patar Gaan",
+    "slug": "shesh-patar-gaan-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0C10"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sheshpatargaan.app",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0C10"
+      },
+      "package": "com.sheshpatargaan.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
